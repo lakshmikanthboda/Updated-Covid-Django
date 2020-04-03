@@ -5,10 +5,11 @@ from . import views
 urlpatterns = [
     path('',views.covidhome, name='covid'),
     path('covid/india', views.covidindia, name='covid'),
+path('covid/italy', views.coviditaly, name='covid'),
     path('covid/us', views.covidus, name='covid'),
     path('covid/spain', views.covidspain, name='covid'),
-    path('covid/china', views.covidspain, name='covid'),
-path('covid/gemany', views.covidgermany, name='covid'),
+    path('covid/china', views.covidchina, name='covid'),
+path('covid/germany', views.covidgermany, name='covid'),
 path('covid/iran', views.covidiran, name='covid'),
 path('covid/france', views.covidfrancce, name='covid'),
 path('covid/switzerland', views.covidswitzer, name='covid'),
@@ -35,4 +36,5 @@ path('covid/iraq', views.covidiraq, name='covid'),
 path('covid/hongkong', views.covidhongkong, name='covid'),
 path('covid/algeria', views.covidalgeria, name='covid'),
 path('covid/southkorea', views.covidsoutjkoria, name='covid'),
+    path('covid/india/states',views.alldata,name='all')
 ]

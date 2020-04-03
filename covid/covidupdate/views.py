@@ -38,9 +38,48 @@ def index(request):
 
 
 def covidindia(request):
-    getdata('india')
+    import requests
+    st='Total'
+    g = requests.get('https://api.covid19india.org/data.json').json()
 
-    return render(request,'index.html', {'Country': country.upper(), 'NoOfCases' : str(count), 'Recovered' : str(recovered) ,'Deaths' : str(deaths) ,'ActiveCases' :str(active_cases) , 'RecoveredCasespercentage' : str(recovery_percentage) , 'DeathPercenrage' : str(death_percentage)})
+    # https://api.covid19india.org/state_district_wise.json
+
+    info = ['active', 'confirmed', 'deaths', 'lastupdatedtime', 'recovered', 'state']
+    states = ['Maharashtra', 'Kerala', 'Tamil Nadu', 'Delhi', 'Rajasthan', 'Uttar Pradesh', 'Andhra Pradesh',
+              'Karnataka', 'Telangana', 'Gujarat', 'Madhya Pradesh', 'Jammu and Kashmir', 'Punjab', 'Haryana',
+              'West Bengal', 'Bihar', 'Chandigarh', 'Ladakh', 'Assam', 'Andaman and Nicobar Islands', 'Chhattisgarh',
+              'Uttarakhand', 'Goa', 'Odisha', 'Himachal Pradesh', 'Puducherry', 'Jharkhand', 'Manipur', 'Mizoram',
+              'Arunachal Pradesh', 'Dadra and Nagar Haveli', 'Daman and Diu', 'Lakshadweep', 'Meghalaya', 'Nagaland',
+              'Sikkim', 'Tripura']
+    active = []
+    confirm = []
+    deaths = []
+    lastuudate = []
+    recovered = []
+    state = []
+    for i in range(0, len(g['statewise'])):
+        country_data = g['statewise'][i]
+        active.append(country_data['active'])
+        confirm.append(country_data['confirmed'])
+        deaths.append(country_data['deaths'])
+        lastuudate.append(country_data['lastupdatedtime'])
+        recovered.append(country_data['recovered'])
+        state.append(country_data['state'])
+    data = {}
+    for i in range(len(state)):
+        data[state[i].replace(" ","")] = {'Active':active[i], 'Confirmed':confirm[i], 'Deaths':deaths[i], 'LastUpdate':lastuudate[i], 'Recovered':recovered[i]}
+
+    #print(data)
+    data['stt']=st
+
+    #print(data)
+    hjhj=data[data['stt']]
+    #print(type(hjhj))
+    hjhj['state']='All States'
+    print(hjhj)
+    return render(request,'index2.html',hjhj)
+
+    #return render(request,'index.html', {'Country': country.upper(), 'NoOfCases' : str(count), 'Recovered' : str(recovered) ,'Deaths' : str(deaths) ,'ActiveCases' :str(active_cases) , 'RecoveredCasespercentage' : str(recovery_percentage) , 'DeathPercenrage' : str(death_percentage)})
 
 
 def covidus(request):
@@ -143,6 +182,55 @@ def covidsoutjkoria(request):
     return render(request,'index.html', {'Country': country.upper(), 'NoOfCases' : str(count), 'Recovered' : str(recovered) ,'Deaths' : str(deaths) ,'ActiveCases' :str(active_cases) , 'RecoveredCasespercentage' : str(recovery_percentage) , 'DeathPercenrage' : str(death_percentage)})
 def covidhome(request):
     return render(request, 'home.html')
+
+
+def alldata(request):
+    st= request.GET["st"]
+    import requests
+    g = requests.get('https://api.covid19india.org/data.json').json()
+
+    # https://api.covid19india.org/state_district_wise.json
+
+    info = ['active', 'confirmed', 'deaths', 'lastupdatedtime', 'recovered', 'state']
+    states = ['Maharashtra', 'Kerala', 'Tamil Nadu', 'Delhi', 'Rajasthan', 'Uttar Pradesh', 'Andhra Pradesh',
+              'Karnataka', 'Telangana', 'Gujarat', 'Madhya Pradesh', 'Jammu and Kashmir', 'Punjab', 'Haryana',
+              'West Bengal', 'Bihar', 'Chandigarh', 'Ladakh', 'Assam', 'Andaman and Nicobar Islands', 'Chhattisgarh',
+              'Uttarakhand', 'Goa', 'Odisha', 'Himachal Pradesh', 'Puducherry', 'Jharkhand', 'Manipur', 'Mizoram',
+              'Arunachal Pradesh', 'Dadra and Nagar Haveli', 'Daman and Diu', 'Lakshadweep', 'Meghalaya', 'Nagaland',
+              'Sikkim', 'Tripura']
+    active = []
+    confirm = []
+    deaths = []
+    lastuudate = []
+    recovered = []
+    state = []
+    for i in range(0, len(g['statewise'])):
+        country_data = g['statewise'][i]
+        active.append(country_data['active'])
+        confirm.append(country_data['confirmed'])
+        deaths.append(country_data['deaths'])
+        lastuudate.append(country_data['lastupdatedtime'])
+        recovered.append(country_data['recovered'])
+        state.append(country_data['state'])
+    for statee in state:
+        print('<p><a href="http://54.164.139.54:8000/covid/india/states?st='+statee+'">'+statee+'</a></p>')
+    data = {}
+    for i in range(len(state)):
+        data[state[i].replace(" ","")] = {'Active':active[i], 'Confirmed':confirm[i], 'Deaths':deaths[i], 'LastUpdate':lastuudate[i], 'Recovered':recovered[i]}
+
+    #print(data)
+    data['stt']=st
+
+    #print(data)
+    hjhj=data[data['stt']]
+    #print(type(hjhj))
+    hjhj['state']=st
+    print(hjhj)
+
+
+
+    return render(request,'index1.html',hjhj)
+
 
 
 
