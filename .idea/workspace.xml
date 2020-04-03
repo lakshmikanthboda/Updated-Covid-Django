@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8db0befd-ccc0-4a37-ade8-adaee424bb10" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/covidupdate/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid/covidupdate/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/covid/covidupdate/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/covid/covidupdate/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/covid/templates/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/covid/templates/home.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/covid/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/covid/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -129,7 +126,15 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update" />
+    <option name="LAST_COMMIT_MESSAGE" value="update" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="337" y="0" key="CommitChangelistDialog2" timestamp="1585892994744">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="337" y="0" key="CommitChangelistDialog2/0.0.1366.728@0.0.1366.728" timestamp="1585892994744" />
     <state width="1344" height="174" key="GridCell.Tab.0.bottom" timestamp="1585892773680">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

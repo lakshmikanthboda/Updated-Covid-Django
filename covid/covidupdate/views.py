@@ -212,8 +212,6 @@ def alldata(request):
         lastuudate.append(country_data['lastupdatedtime'])
         recovered.append(country_data['recovered'])
         state.append(country_data['state'])
-    for statee in state:
-        print('<p><a href="http://54.164.139.54:8000/covid/india/states?st='+statee+'">'+statee+'</a></p>')
     data = {}
     for i in range(len(state)):
         data[state[i].replace(" ","")] = {'Active':active[i], 'Confirmed':confirm[i], 'Deaths':deaths[i], 'LastUpdate':lastuudate[i], 'Recovered':recovered[i]}
