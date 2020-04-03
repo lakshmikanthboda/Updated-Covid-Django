@@ -2,6 +2,7 @@ from django.urls import path
 
 from . import views
 
+
 urlpatterns = [
     path('',views.covidhome, name='covid'),
     path('covid/india', views.covidindia, name='covid'),

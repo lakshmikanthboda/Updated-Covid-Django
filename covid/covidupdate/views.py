@@ -199,6 +199,7 @@ def alldata(request):
               'Arunachal Pradesh', 'Dadra and Nagar Haveli', 'Daman and Diu', 'Lakshadweep', 'Meghalaya', 'Nagaland',
               'Sikkim', 'Tripura']
     active = []
+
     confirm = []
     deaths = []
     lastuudate = []
